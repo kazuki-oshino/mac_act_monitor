@@ -15,9 +15,23 @@ func main() {
 
 func onReady() {
 	systray.SetTitle("🖥️")
-	updateStats()
 
-	// 定期的な更新
+	// メニュー項目の追加
+	mQuit := systray.AddMenuItem("終了", "アプリケーションを終了")
+
+	// メニュー処理用のゴルーチン
+	go func() {
+		for {
+			select {
+			case <-mQuit.ClickedCh:
+				systray.Quit()
+				return
+			}
+		}
+	}()
+
+	// 統計情報の更新
+	updateStats()
 	go func() {
 		ticker := time.NewTicker(2 * time.Second)
 		for {
