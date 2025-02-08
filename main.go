@@ -63,7 +63,7 @@ func updateStats() {
 	}
 
 	// 表示を更新
-	statsText := fmt.Sprintf("CPU: %.1f%% | MEM: %.1f%%",
+	statsText := fmt.Sprintf("CPU: %5.1f%% | MEM: %5.1f%%",
 		cpuPercent[0],
 		memInfo.UsedPercent,
 	)
