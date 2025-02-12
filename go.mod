@@ -1,6 +1,6 @@
 module mac_act_monitor
 
-go 1.23.6
+go 1.23.2
 
 require (
 	github.com/getlantern/systray v1.2.2
